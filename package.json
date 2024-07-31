@@ -1,0 +1,36 @@
+{
+  "author":
+  {
+    "name": "veto@myridia.com"
+  },
+  "dependencies":
+  {},
+  "deprecated": false,
+  "description": "Vanilla JS utility functions for daily website usage",
+  "homepage": "https://calantas.org/vanilla-website-utils",
+  "license": "GPL-3.0-or-later",
+  "main": "vanilla-website-utils.js",
+  "name": "vanilla-website-utils",
+  "keywords": [
+  "website",
+  "webpage",
+  "vanilla",
+  "vanilla-website-util",
+  "utils",
+  "read csv file",
+  "util",      
+  "utilities",
+  "helper",
+  "functions"
+  ],
+  "repository":
+  {
+    "type": "hg",
+    "url": "https://calantas.org/vanilla-website-utils"
+  },
+  "scripts":
+  {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "version": "1.8.1"
+}
