@@ -99,9 +99,12 @@ sort_object(obj,sort_order = 'desc')
 
 from_112_to_date(str, add_days=0)
 {
-    const year   = parseInt(str.substring(0,4))
-    const month  = parseInt(str.substring(5,6));    
-    const day    = parseInt(str.substring(7,8));
+    const _year = str.substring(0,4);
+    const _month = str.substring(4,6);
+    const _day = str.substring(6,8);        
+    const year   = parseInt(_year)
+    const month  = parseInt(_month);    
+    const day    = parseInt(_day);
     let d = new Date(year, month-1, day );
     d.setDate(d.getDate() + add_days);
     return d;
