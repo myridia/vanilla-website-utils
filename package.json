@@ -25,8 +25,8 @@
   ],
   "repository":
   {
-    "type": "hg",
-    "url": "https://calantas.org/vanilla-website-utils"
+    "type": "git",
+    "url": "https://github.com/myridia/vanilla-website-utils"
   },
   "scripts":
   {
