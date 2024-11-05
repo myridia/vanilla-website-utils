@@ -32,5 +32,9 @@
   {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+<<<<<<< HEAD
+  "version": "1.8.4"
+=======
   "version": "1.8.3"
+>>>>>>> b5ba2d06520737c4a0e06dcb44e81701bbc41e8e
 }
