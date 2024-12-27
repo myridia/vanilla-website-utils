@@ -536,3 +536,5 @@ var vwu = new Vanilla_website_utils();
 let select = document.querySelector("#bom");
 await vwu.set_selected(select,v['bom']);
 ```
+## Github
+https://github.com/myridia/vanilla-website-utils.git
