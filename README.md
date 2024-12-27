@@ -56,6 +56,7 @@ A module for Vanilla-website-utils
     * [module.exports#csv_file_to_array(file)](#exp_module_Vanilla-website-utils--module.exports+csv_file_to_array) ⇒ <code>array</code> ⏏
     * [module.exports#clear_textarea()](#exp_module_Vanilla-website-utils--module.exports+clear_textarea) ⏏
     * [module.exports#sort_object(obj, sort_order)](#exp_module_Vanilla-website-utils--module.exports+sort_object) ⇒ <code>array</code> ⏏
+    * [module.exports#from_112_to_date(str, add_days)](#exp_module_Vanilla-website-utils--module.exports+from_112_to_date) ⇒ <code>object</code> ⏏
     * [module.exports#date_to_112(_date)](#exp_module_Vanilla-website-utils--module.exports+date_to_112) ⇒ <code>string</code> ⏏
     * [module.exports#month_list(month_back, revert, format)](#exp_module_Vanilla-website-utils--module.exports+month_list) ⇒ <code>arry</code> ⏏
     * [module.exports#get_host(ext)](#exp_module_Vanilla-website-utils--module.exports+get_host) ⇒ <code>string</code> ⏏
@@ -70,10 +71,12 @@ A module for Vanilla-website-utils
     * [module.exports#email_validator(email)](#exp_module_Vanilla-website-utils--module.exports+email_validator) ⇒ <code>bolan</code> ⏏
     * [module.exports#get_url_parameter(name)](#exp_module_Vanilla-website-utils--module.exports+get_url_parameter) ⇒ <code>string</code> ⏏
     * [module.exports#get_site()](#exp_module_Vanilla-website-utils--module.exports+get_site) ⇒ <code>string</code> ⏏
-    * [module.exports#autocomplete_textfield(setting)](#exp_module_Vanilla-website-utils--module.exports+autocomplete_textfield) ⏏
+    * [module.exports#autocomplete_textfield(setting, search)](#exp_module_Vanilla-website-utils--module.exports+autocomplete_textfield) ⏏
+    * [module.exports#autocomplete_select(setting)](#exp_module_Vanilla-website-utils--module.exports+autocomplete_select) ⏏
     * [module.exports#_set_textfield()](#exp_module_Vanilla-website-utils--module.exports+_set_textfield) ⏏
     * [module.exports#autoload_textfield()](#exp_module_Vanilla-website-utils--module.exports+autoload_textfield) ⏏
     * [module.exports#autocomplete()](#exp_module_Vanilla-website-utils--module.exports+autocomplete) ⏏
+    * [module.exports#post_textfield_rows(id, url, callback)](#exp_module_Vanilla-website-utils--module.exports+post_textfield_rows) ⇒ <code>callback</code> ⏏
     * [module.exports#get_form_data(form)](#exp_module_Vanilla-website-utils--module.exports+get_form_data) ⇒ <code>array</code> ⏏
     * [module.exports#s_fill_select(select_obj, data)](#exp_module_Vanilla-website-utils--module.exports+s_fill_select) ⏏
     * [module.exports#fill_select(select_obj, data, selected, copy2clipboard, log)](#exp_module_Vanilla-website-utils--module.exports+fill_select) ⏏
@@ -122,6 +125,22 @@ vwu.clear_textarea()
 var vwu = new Vanilla_website_utils();
 let obj = {a:100,b:50,c:75,d:1};
 let a = vwu.sort_object('desc'); 
+```
+<a name="exp_module_Vanilla-website-utils--module.exports+from_112_to_date"></a>
+
+### module.exports#from\_112\_to\_date(str, add_days) ⇒ <code>object</code> ⏏
+**Kind**: Exported function  
+**Returns**: <code>object</code> - - date object  
+
+| Param | Type | Default | Description |
+| --- | --- | --- | --- |
+| str | <code>str</code> |  | a 112 string type date |
+| add_days | <code>int</code> | <code>0</code> | add days or remove by adding -1 or 1 |
+
+**Example**  
+```js
+var vwu = new Vanilla_website_utils();
+let date = vwu.112_to_date('20240601'); 
 ```
 <a name="exp_module_Vanilla-website-utils--module.exports+date_to_112"></a>
 
@@ -345,12 +364,13 @@ let site = vwu.get_site
 ```
 <a name="exp_module_Vanilla-website-utils--module.exports+autocomplete_textfield"></a>
 
-### module.exports#autocomplete\_textfield(setting) ⏏
+### module.exports#autocomplete\_textfield(setting, search) ⏏
 **Kind**: Exported function  
 
 | Param | Type | Description |
 | --- | --- | --- |
 | setting | <code>object</code> | see example |
+| search |  | in object can be begining(default) or inline |
 
 **Example**  
 ```js
@@ -363,6 +383,33 @@ var vwu = new Vanilla_website_utils();
        append_to: '#nav-search',
        min_key_length: 2
        search: inline
+     });
+     url: api + '/code/name',
+       onetimeload: true,
+       dom_id: 'search',
+       name: 'search',
+       append_to: '#nav-search',
+       min_key_length: 2
+       search: beginning
+     });
+```
+<a name="exp_module_Vanilla-website-utils--module.exports+autocomplete_select"></a>
+
+### module.exports#autocomplete\_select(setting) ⏏
+**Kind**: Exported function  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| setting | <code>object</code> | see example |
+
+**Example**  
+```js
+var vwu = new Vanilla_website_utils();
+ await vwu.autocomplete_select({
+     url: api + '/code/name',
+       onetimeload: true,
+       dom_id: 'search',
+       name: 'search',
      });
 ```
 <a name="exp_module_Vanilla-website-utils--module.exports+_set_textfield"></a>
@@ -377,11 +424,29 @@ var vwu = new Vanilla_website_utils();
 
 ### module.exports#autocomplete() ⏏
 **Kind**: Exported function  
+<a name="exp_module_Vanilla-website-utils--module.exports+post_textfield_rows"></a>
+
+### module.exports#post\_textfield\_rows(id, url, callback) ⇒ <code>callback</code> ⏏
+**Kind**: Exported function  
+**Returns**: <code>callback</code> - - callback call  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| id | <code>string</code> | id from a enbedded Textfield into a form tag |
+| url | <code>string</code> | url string where to post the data rows |
+| callback | <code>string</code> | callback function, you need to declare a callbackup what will be called after the post |
+
+**Example**  
+```js
+it will disable the form submit 
+var vwu = new Vanilla_website_utils();
+let array= vwu.get_text_rows);
+```
 <a name="exp_module_Vanilla-website-utils--module.exports+get_form_data"></a>
 
 ### module.exports#get\_form\_data(form) ⇒ <code>array</code> ⏏
 **Kind**: Exported function  
-**Returns**: <code>array</code> - in key/value  
+**Returns**: <code>array</code> - in key/value as JSON  
 
 | Param | Type | Description |
 | --- | --- | --- |
