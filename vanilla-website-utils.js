@@ -564,7 +564,7 @@ module.exports = class Vanilla_website_utils {
       }
     }
     if (data) {
-      console.log(data);
+      //      console.log(data);
     }
   }
 
@@ -1075,7 +1075,7 @@ module.exports = class Vanilla_website_utils {
 * await vwu.set_selected(select,v['bom']);
 */
   async set_selected(select_obj, data) {
-    console.log(data);
+    //console.log(data);
 
     for (const option of select_obj.querySelectorAll("option")) {
       const value = option.value;
