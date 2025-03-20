@@ -11,6 +11,60 @@ module.exports = class Vanilla_website_utils {
 
   /**
 @alias module:Vanilla-website-utils
+@param {int} -  number of years back in time - default is 0, what brings only the actual year
+@returns {array} - file object with month back in time with the starting and end date of a 112 date format
+@example
+* var vwu = new Vanilla_website_utils();
+* months = vwu.get_month_back(5)
+*/
+
+  async get_month_back(yrs = 0) {
+    const months = [
+      "January",
+      "February",
+      "March",
+      "April",
+      "May",
+      "June",
+      "July",
+      "August",
+      "September",
+      "October",
+      "November",
+      "December",
+    ];
+    let obj = {};
+
+    const today = new Date();
+    let today_year = today.getFullYear();
+    let today_month = today.getMonth();
+    let today_year_month =
+      today_year + (today_month + 1).toString().padStart(2, "0");
+
+    for (let y = 0; y < yrs + 1; y++) {
+      let year = today_year - y;
+      //console.log(year);
+      for (let m = 0; m < months.length; m++) {
+        let ms = year + "" + (m + 1).toString().padStart(2, "0");
+        if (ms <= today_year_month) {
+          const start = ms + "" + "01";
+          const end = ms + "" + new Date(year, m + 1, 0).getDate();
+          const name = months[m] + " " + year;
+          obj[start] = { start: start, end: end, name: name };
+        }
+      }
+    }
+    let r = [];
+    let keys = Object.keys(obj).sort().reverse();
+    for (let i in keys) {
+      r.push(obj[keys[i]]);
+    }
+
+    return r;
+  }
+
+  /**
+@alias module:Vanilla-website-utils
 @param {object} - file object from a HTML website
 @returns {array} - the collected data from the csv file into an array
 @example
