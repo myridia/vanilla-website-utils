@@ -38,6 +38,7 @@ module.exports = class Vanilla_website_utils {
     const today = new Date();
     let today_year = today.getFullYear();
     let today_month = today.getMonth();
+    let today_day = today.getDate().toString().padStart(2, "0");
     let today_year_month =
       today_year + (today_month + 1).toString().padStart(2, "0");
     console.log(today_year_month);
@@ -51,7 +52,7 @@ module.exports = class Vanilla_website_utils {
           const start = ms + "" + "01";
           let end = ms + "" + new Date(year, m + 1, 0).getDate();
           if (ms === today_year_month) {
-            end = today_year_month;
+            end = today_year_month + "" + today_day;
           }
           const name = months[m] + " " + year;
           obj[start] = { start: start, end: end, name: name };
