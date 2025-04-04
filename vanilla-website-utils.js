@@ -40,7 +40,6 @@ module.exports = class Vanilla_website_utils {
     let today_day = today.getDate().toString().padStart(2, "0");
     let today_year_month =
       today_year + (today_month + 1).toString().padStart(2, "0");
-    console.log(today_year_month);
 
     for (let y = 0; y < yrs + 1; y++) {
       let year = today_year - y;
