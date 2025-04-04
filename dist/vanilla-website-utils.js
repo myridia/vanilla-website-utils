@@ -40,15 +40,19 @@ module.exports = class Vanilla_website_utils {
     let today_month = today.getMonth();
     let today_year_month =
       today_year + (today_month + 1).toString().padStart(2, "0");
+    console.log(today_year_month);
 
     for (let y = 0; y < yrs + 1; y++) {
       let year = today_year - y;
-      //console.log(year);
+
       for (let m = 0; m < months.length; m++) {
         let ms = year + "" + (m + 1).toString().padStart(2, "0");
         if (ms <= today_year_month) {
           const start = ms + "" + "01";
-          const end = ms + "" + new Date(year, m + 1, 0).getDate();
+          let end = ms + "" + new Date(year, m + 1, 0).getDate();
+          if (ms === today_year_month) {
+            end = today_year_month;
+          }
           const name = months[m] + " " + year;
           obj[start] = { start: start, end: end, name: name };
         }
