@@ -3,7 +3,7 @@
   {
     "name": "info@myridia.com"
   },
-  "dependencies":
+  "dependencies":{},
   "deprecated": false,
   "description": "Vanilla JS utility functions for daily website usage",
   "homepage": "https://calantas.org/vanilla-website-utils",
