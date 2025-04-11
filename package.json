@@ -6,7 +6,7 @@
   "dependencies":{},
   "deprecated": false,
   "description": "Vanilla JS utility functions for daily website usage",
-  "homepage": "https://calantas.org/vanilla-website-utils",
+  "homepage": "https://vanilla-website-utils.myridia.com",
   "license": "GPL-3.0-or-later",
   "main": "vanilla-website-utils.js",
   "name": "vanilla-website-utils",
