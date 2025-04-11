@@ -340,16 +340,26 @@ module.exports = class Vanilla_website_utils {
   /**
 @alias module:Vanilla-website-utils
 @param {string} - api url
+@param {string} - user - for Basic Authorization
+@param {string} - password - for Basic Authorization
+@param {string} - token - for Bearer Authorization
 @returns {object} json 
 @example
 * var vwu = new Vanilla_website_utils();
 * let res = await vwu.aget_api(url);
 */
-  async aget_api(url) {
+  async aget_api(url, user = "", password = "", token = "") {
     return new Promise((resolve, reject) => {
       let xhr = new XMLHttpRequest();
       xhr.open("GET", url, true);
       xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+      if (user != "" && password != "") {
+        const base64 = btoa(user + ":" + password);
+        xhr.setRequestHeader("Authorization", "Basic " + base64);
+      } else if (token != "") {
+        xhr.setRequestHeader("Authorization", "Bearer " + token);
+      } else {
+      }
       xhr.onload = function () {
         return resolve(xhr.responseText);
       };

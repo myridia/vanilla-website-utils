@@ -53,6 +53,7 @@ A module for Vanilla-website-utils
 
 
 * [Vanilla-website-utils](#module_Vanilla-website-utils)
+    * [module.exports#get_month_back(yrs)](#exp_module_Vanilla-website-utils--module.exports+get_month_back) ⇒ <code>array</code> ⏏
     * [module.exports#csv_file_to_array(file)](#exp_module_Vanilla-website-utils--module.exports+csv_file_to_array) ⇒ <code>array</code> ⏏
     * [module.exports#clear_textarea()](#exp_module_Vanilla-website-utils--module.exports+clear_textarea) ⏏
     * [module.exports#sort_object(obj, sort_order)](#exp_module_Vanilla-website-utils--module.exports+sort_object) ⇒ <code>array</code> ⏏
@@ -63,7 +64,7 @@ A module for Vanilla-website-utils
     * [module.exports#get_parameters(url)](#exp_module_Vanilla-website-utils--module.exports+get_parameters) ⇒ <code>object</code> ⏏
     * [module.exports#get_select_text_by_value(select, value)](#exp_module_Vanilla-website-utils--module.exports+get_select_text_by_value) ⇒ <code>string</code> ⏏
     * [module.exports#add_parameters(url, parameters)](#exp_module_Vanilla-website-utils--module.exports+add_parameters) ⇒ <code>string</code> ⏏
-    * [module.exports#aget_api(url)](#exp_module_Vanilla-website-utils--module.exports+aget_api) ⇒ <code>object</code> ⏏
+    * [module.exports#aget_api(url, user, password, token)](#exp_module_Vanilla-website-utils--module.exports+aget_api) ⇒ <code>object</code> ⏏
     * [module.exports#aput_api(url, data, content_type)](#exp_module_Vanilla-website-utils--module.exports+aput_api) ⇒ <code>object</code> ⏏
     * [module.exports#apost_api(url, data, content_type)](#exp_module_Vanilla-website-utils--module.exports+apost_api) ⇒ <code>object</code> ⏏
     * [module.exports#post_api(url, my_callback, _data)](#exp_module_Vanilla-website-utils--module.exports+post_api) ⇒ <code>object</code> ⏏
@@ -84,6 +85,21 @@ A module for Vanilla-website-utils
     * [module.exports#s_set_selected(select_obj, data)](#exp_module_Vanilla-website-utils--module.exports+s_set_selected) ⏏
     * [module.exports#set_selected()](#exp_module_Vanilla-website-utils--module.exports+set_selected) ⏏
 
+<a name="exp_module_Vanilla-website-utils--module.exports+get_month_back"></a>
+
+### module.exports#get\_month\_back(yrs) ⇒ <code>array</code> ⏏
+**Kind**: Exported function  
+**Returns**: <code>array</code> - - file object with month back in time with the starting and end date of a 112 date format  
+
+| Param | Type | Default | Description |
+| --- | --- | --- | --- |
+| yrs | <code>int</code> | <code>0</code> | number of years back in time - default is 0, what brings only the actual year |
+
+**Example**  
+```js
+var vwu = new Vanilla_website_utils();
+months = vwu.get_month_back(5)
+```
 <a name="exp_module_Vanilla-website-utils--module.exports+csv_file_to_array"></a>
 
 ### module.exports#csv\_file\_to\_array(file) ⇒ <code>array</code> ⏏
@@ -240,13 +256,16 @@ url = await vwu.add_parameters(url, filter);
 ```
 <a name="exp_module_Vanilla-website-utils--module.exports+aget_api"></a>
 
-### module.exports#aget\_api(url) ⇒ <code>object</code> ⏏
+### module.exports#aget\_api(url, user, password, token) ⇒ <code>object</code> ⏏
 **Kind**: Exported function  
 **Returns**: <code>object</code> - json  
 
 | Param | Type | Description |
 | --- | --- | --- |
 | url | <code>string</code> | api url |
+| user | <code>string</code> | user - for Basic Authorization |
+| password | <code>string</code> | password - for Basic Authorization |
+| token | <code>string</code> | token - for Bearer Authorization |
 
 **Example**  
 ```js
@@ -536,5 +555,3 @@ var vwu = new Vanilla_website_utils();
 let select = document.querySelector("#bom");
 await vwu.set_selected(select,v['bom']);
 ```
-## Github
-https://github.com/myridia/vanilla-website-utils.git
