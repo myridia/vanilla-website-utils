@@ -4,7 +4,6 @@
     "name": "info@myridia.com"
   },
   "dependencies":
-  {},
   "deprecated": false,
   "description": "Vanilla JS utility functions for daily website usage",
   "homepage": "https://calantas.org/vanilla-website-utils",
@@ -27,10 +26,6 @@
   {
     "type": "git",
     "url": "https://github.com/myridia/vanilla-website-utils"
-  },
-  "scripts":
-  {
-    "test": "echo \"Error: no test specified\" && exit 1"
   },
 
   "version": "1.12.0"
