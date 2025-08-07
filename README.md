@@ -43,8 +43,11 @@ veto@myridia.com
    await vwu.autoload_textfield("http://127.0.0.1:8051/book_authors_name?f=data&_max=100",'test','test')
 ```
 
-## Repro:
-  https://calantas.org/vanilla-website-utils
+## Clone the Source via SSH:
+```
+git clone git@github.com:myridia/vanilla-website-utils.git
+```
+
 <a name="module_Vanilla-website-utils"></a>
 
 ## Vanilla-website-utils
@@ -53,6 +56,7 @@ A module for Vanilla-website-utils
 
 
 * [Vanilla-website-utils](#module_Vanilla-website-utils)
+    * [module.exports#remove_tags()](#exp_module_Vanilla-website-utils--module.exports+remove_tags) ⇒ <code>string</code> ⏏
     * [module.exports#get_month_back(yrs)](#exp_module_Vanilla-website-utils--module.exports+get_month_back) ⇒ <code>array</code> ⏏
     * [module.exports#csv_file_to_array(file)](#exp_module_Vanilla-website-utils--module.exports+csv_file_to_array) ⇒ <code>array</code> ⏏
     * [module.exports#clear_textarea()](#exp_module_Vanilla-website-utils--module.exports+clear_textarea) ⏏
@@ -85,6 +89,21 @@ A module for Vanilla-website-utils
     * [module.exports#s_set_selected(select_obj, data)](#exp_module_Vanilla-website-utils--module.exports+s_set_selected) ⏏
     * [module.exports#set_selected()](#exp_module_Vanilla-website-utils--module.exports+set_selected) ⏏
 
+<a name="exp_module_Vanilla-website-utils--module.exports+remove_tags"></a>
+
+### module.exports#remove\_tags() ⇒ <code>string</code> ⏏
+**Kind**: Exported function  
+**Returns**: <code>string</code> - - string with the tags removed  
+
+| Param | Type | Description |
+| --- | --- | --- |
+|  | <code>string</code> | string what contains html tags |
+
+**Example**  
+```js
+var vwu = new Vanilla_website_utils();
+var new_string = vwu.remove_tags(string)
+```
 <a name="exp_module_Vanilla-website-utils--module.exports+get_month_back"></a>
 
 ### module.exports#get\_month\_back(yrs) ⇒ <code>array</code> ⏏

@@ -43,5 +43,8 @@ veto@myridia.com
    await vwu.autoload_textfield("http://127.0.0.1:8051/book_authors_name?f=data&_max=100",'test','test')
 ```
 
-## Repro:
-  https://calantas.org/vanilla-website-utils
+## Clone the Source via SSH:
+```
+git clone git@github.com:myridia/vanilla-website-utils.git
+```
+
