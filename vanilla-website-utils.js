@@ -10,6 +10,26 @@ module.exports = class Vanilla_website_utils {
 
   /**
 @alias module:Vanilla-website-utils
+@param {string} -  string what contains html tags
+@returns {string} - string with the tags removed
+@example
+* var vwu = new Vanilla_website_utils();
+* var new_string = vwu.remove_tags(string)
+*/
+  remove_tags() {
+    let ret = str;
+    if (str === null || str === "") {
+      return false;
+    } else {
+      str = str.toString();
+      ret = str.replace(/(<([^>]+)>)/gi, "");
+      ret = ret.trim();
+    }
+    return ret;
+  }
+
+  /**
+@alias module:Vanilla-website-utils
 @param {int} -  number of years back in time - default is 0, what brings only the actual year
 @returns {array} - file object with month back in time with the starting and end date of a 112 date format
 @example
