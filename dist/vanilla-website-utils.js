@@ -256,6 +256,31 @@ module.exports = class Vanilla_website_utils {
   }
 
   /**
+@alias module:Vanilla-website-utils                                             
+@returns {string} removed  empty parameters -parameters with an empty string  or none
+@example                                                                        
+* var vwu = new Vanilla_website_utils();                                        
+* url in the addressbar = "http://foo.com?key=bar&key2=&key3=barbar"           
+* url = await vwu.add_parameters();
+* await vwu.clean_url_parameters();
+* the addressbar will be changed to "http://foo.com?key3=barbar"                                  
+  */
+
+  async clean_url_parameters() {
+    const url = window.location.href;
+    const uri = url.split("?")[0];
+    const v = await this.get_parameters();
+    let filter = {};
+    for (let i in v) {
+      if (v[i] != "" && v[i] != "none") {
+        filter[i] = v[i];
+      }
+    }
+    const new_url = await vwu.add_parameters(uri, filter);
+    window.history.pushState(null, null, new_url);
+  }
+
+  /**
 @alias module:Vanilla-website-utils
 @param {string} - url 
 @returns {object} json pair key/value

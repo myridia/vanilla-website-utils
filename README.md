@@ -65,6 +65,7 @@ A module for Vanilla-website-utils
     * [module.exports#date_to_112(_date)](#exp_module_Vanilla-website-utils--module.exports+date_to_112) ⇒ <code>string</code> ⏏
     * [module.exports#month_list(month_back, revert, format)](#exp_module_Vanilla-website-utils--module.exports+month_list) ⇒ <code>arry</code> ⏏
     * [module.exports#get_host(ext)](#exp_module_Vanilla-website-utils--module.exports+get_host) ⇒ <code>string</code> ⏏
+    * [module.exports#clean_url_parameters()](#exp_module_Vanilla-website-utils--module.exports+clean_url_parameters) ⇒ <code>string</code> ⏏
     * [module.exports#get_parameters(url)](#exp_module_Vanilla-website-utils--module.exports+get_parameters) ⇒ <code>object</code> ⏏
     * [module.exports#get_select_text_by_value(select, value)](#exp_module_Vanilla-website-utils--module.exports+get_select_text_by_value) ⇒ <code>string</code> ⏏
     * [module.exports#add_parameters(url, parameters)](#exp_module_Vanilla-website-utils--module.exports+add_parameters) ⇒ <code>string</code> ⏏
@@ -224,6 +225,19 @@ let data = await vwu.month_list(60,true,"`${j}.${i}`");
 ```js
 var vwu = new Vanilla_website_utils();
 let host = await vwu.get_host();
+```
+<a name="exp_module_Vanilla-website-utils--module.exports+clean_url_parameters"></a>
+
+### module.exports#clean\_url\_parameters() ⇒ <code>string</code> ⏏
+**Kind**: Exported function  
+**Returns**: <code>string</code> - removed  empty parameters -parameters with an empty string  or none  
+**Example**  
+```js
+var vwu = new Vanilla_website_utils();                                        
+url in the addressbar = "http://foo.com?key=bar&key2=&key3=barbar"           
+url = await vwu.add_parameters();
+await vwu.clean_url_parameters();
+the addressbar will be changed to "http://foo.com?key3=barbar"                                  
 ```
 <a name="exp_module_Vanilla-website-utils--module.exports+get_parameters"></a>
 
