@@ -243,7 +243,7 @@ the addressbar will be changed to "http://foo.com?key3=barbar"
 
 ### module.exports#get\_parameters(url) ⇒ <code>object</code> ⏏
 **Kind**: Exported function  
-**Returns**: <code>object</code> - json pair key/value  
+**Returns**: <code>object</code> - json pair key/value -- new line value will be return as array!  
 
 | Param | Type | Description |
 | --- | --- | --- |
