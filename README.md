@@ -1,6 +1,7 @@
 # Vanilla-website-utils
-Vanilla JS utility functions
-for daily website usage
+* Vanilla JS utility functions for daily website usage
+* Hostet at https://www.npmjs.com/package/vanilla-website-utils
+
 
 # Feeback
 If you are using or are interested in this module, please send me some Feedback.
