@@ -273,7 +273,11 @@ module.exports = class Vanilla_website_utils {
     let filter = {};
     for (let i in v) {
       if (v[i] != "" && v[i] != "none") {
-        filter[i] = v[i];
+        if (v[i].constructor === Array) {
+          filter[i] = v[i].join(",");
+        } else {
+          filter[i] = v[i];
+        }
       }
     }
     const new_url = await vwu.add_parameters(uri, filter);
@@ -283,7 +287,7 @@ module.exports = class Vanilla_website_utils {
   /**
 @alias module:Vanilla-website-utils
 @param {string} - url 
-@returns {object} json pair key/value
+@returns {object} json pair key/value -- new line value will be return as array!
 @example
 * var vwu = new Vanilla_website_utils();
 * let v = await vwu.get_parameters();
@@ -308,6 +312,12 @@ module.exports = class Vanilla_website_utils {
       let key = eq > -1 ? part.substr(0, eq) : part;
       let val = eq > -1 ? decodeURIComponent(part.substr(eq + 1)) : "";
       let from = key.indexOf("[");
+      // check for new line string and return array
+      if (val.indexOf("\r\n") > -1) {
+        val = val.split("\r\n");
+      } else if (val.indexOf("\n") > -1) {
+        val = val.split("\n");
+      }
 
       if (from == -1) {
         let _key = decodeURIComponent(key);
