@@ -30,6 +30,53 @@ module.exports = class Vanilla_website_utils {
 
   /**
 @alias module:Vanilla-website-utils
+@param {string} - string to check if its a number or float
+@returns {boolean} - returns true for number or float 
+@example
+* var vwu = new Vanilla_website_utils();
+* document.querySelector("#input").addEventListener("change", function(){
+* let r = vwu.is_number("12,16346");
+},false)
+  */
+
+  is_number(value) {
+    return (
+      typeof value === "string" && !isNaN(value) && !isNaN(parseFloat(value))
+    );
+  }
+
+  /**
+@alias module:Vanilla-website-utils
+@param {float} - float number to round
+@param {integer} - level of decimal to round 
+@returns {float} - rounded float number
+@example
+* var vwu = new Vanilla_website_utils();
+* document.querySelector("#input").addEventListener("change", function(){
+* let arr = vwu.round(12,16346,2);
+},false)
+
+*/
+  round(number, decimal = 0) {
+    if (typeof number === "string") {
+      if (this.is_number(number) === false) {
+        return number;
+      }
+    }
+    if (number > 0) {
+      let d = 10;
+      for (let x = 1; x < decimal; x++) {
+        d = d * 10;
+      }
+      number = Math.round(number * d) / d;
+    } else {
+      number = Math.round();
+    }
+    return number;
+  }
+
+  /**
+@alias module:Vanilla-website-utils
 @param {int} -  number of years back in time - default is 0, what brings only the actual year
 @returns {array} - file object with month back in time with the starting and end date of a 112 date format
 @example

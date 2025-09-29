@@ -1,7 +1,6 @@
 # Vanilla-website-utils
-* Vanilla JS utility functions for daily website usage
-* Hostet at https://www.npmjs.com/package/vanilla-website-utils
-
+Vanilla JS utility functions
+for daily website usage
 
 # Feeback
 If you are using or are interested in this module, please send me some Feedback.
@@ -58,6 +57,8 @@ A module for Vanilla-website-utils
 
 * [Vanilla-website-utils](#module_Vanilla-website-utils)
     * [module.exports#remove_tags()](#exp_module_Vanilla-website-utils--module.exports+remove_tags) ⇒ <code>string</code> ⏏
+    * [module.exports#is_number(value)](#exp_module_Vanilla-website-utils--module.exports+is_number) ⇒ <code>boolean</code> ⏏
+    * [module.exports#round(number, decimal)](#exp_module_Vanilla-website-utils--module.exports+round) ⇒ <code>float</code> ⏏
     * [module.exports#get_month_back(yrs)](#exp_module_Vanilla-website-utils--module.exports+get_month_back) ⇒ <code>array</code> ⏏
     * [module.exports#csv_file_to_array(file)](#exp_module_Vanilla-website-utils--module.exports+csv_file_to_array) ⇒ <code>array</code> ⏏
     * [module.exports#clear_textarea()](#exp_module_Vanilla-website-utils--module.exports+clear_textarea) ⏏
@@ -105,6 +106,41 @@ A module for Vanilla-website-utils
 ```js
 var vwu = new Vanilla_website_utils();
 var new_string = vwu.remove_tags(string)
+```
+<a name="exp_module_Vanilla-website-utils--module.exports+is_number"></a>
+
+### module.exports#is\_number(value) ⇒ <code>boolean</code> ⏏
+**Kind**: Exported function  
+**Returns**: <code>boolean</code> - - returns true for number or float  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| value | <code>string</code> | string to check if its a number or float |
+
+**Example**  
+```js
+var vwu = new Vanilla_website_utils();
+document.querySelector("#input").addEventListener("change", function(){
+let r = vwu.is_number("12,16346");
+},false)
+```
+<a name="exp_module_Vanilla-website-utils--module.exports+round"></a>
+
+### module.exports#round(number, decimal) ⇒ <code>float</code> ⏏
+**Kind**: Exported function  
+**Returns**: <code>float</code> - - rounded float number  
+
+| Param | Type | Default | Description |
+| --- | --- | --- | --- |
+| number | <code>float</code> |  | float number to round |
+| decimal | <code>integer</code> | <code>0</code> | level of decimal to round |
+
+**Example**  
+```js
+var vwu = new Vanilla_website_utils();
+document.querySelector("#input").addEventListener("change", function(){
+let arr = vwu.round(12,16346,2);
+},false)
 ```
 <a name="exp_module_Vanilla-website-utils--module.exports+get_month_back"></a>
 
