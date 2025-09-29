@@ -1,6 +1,4 @@
-remove.sh
-revert.sh
-add.sh
+pages
 demo
 .tern-port            
 dist/.tern-port
