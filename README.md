@@ -71,6 +71,10 @@ A module for Vanilla-website-utils
     * [module.exports#get_parameters(url)](#exp_module_Vanilla-website-utils--module.exports+get_parameters) ⇒ <code>object</code> ⏏
     * [module.exports#get_select_text_by_value(select, value)](#exp_module_Vanilla-website-utils--module.exports+get_select_text_by_value) ⇒ <code>string</code> ⏏
     * [module.exports#add_parameters(url, parameters)](#exp_module_Vanilla-website-utils--module.exports+add_parameters) ⇒ <code>string</code> ⏏
+    * [module.exports#afetch_all(callback, ...urls)](#exp_module_Vanilla-website-utils--module.exports+afetch_all) ⇒ <code>array</code> ⏏
+    * [module.exports#wait_for_all(...ps)](#exp_module_Vanilla-website-utils--module.exports+wait_for_all) ⇒ <code>promise</code> ⏏
+    * [module.exports#afetch(url)](#exp_module_Vanilla-website-utils--module.exports+afetch) ⇒ <code>json</code> ⏏
+    * [module.exports#handle_rejection(p)](#exp_module_Vanilla-website-utils--module.exports+handle_rejection) ⇒ <code>objet</code> ⏏
     * [module.exports#aget_api(url, user, password, token)](#exp_module_Vanilla-website-utils--module.exports+aget_api) ⇒ <code>object</code> ⏏
     * [module.exports#aput_api(url, data, content_type)](#exp_module_Vanilla-website-utils--module.exports+aput_api) ⇒ <code>object</code> ⏏
     * [module.exports#apost_api(url, data, content_type)](#exp_module_Vanilla-website-utils--module.exports+apost_api) ⇒ <code>object</code> ⏏
@@ -323,6 +327,75 @@ let mytext = await vwu.get_select_text_by_value(document.querySelector("#resourc
 var vwu = new Vanilla_website_utils();
 filter = {"foo":"bar"};
 url = await vwu.add_parameters(url, filter);
+```
+<a name="exp_module_Vanilla-website-utils--module.exports+afetch_all"></a>
+
+### module.exports#afetch\_all(callback, ...urls) ⇒ <code>array</code> ⏏
+This function allows you to call multiple API Get URLs asynchronously and wait for all results.
+Once all results are received, an array of JSON object results is returned.
+
+**Kind**: Exported function  
+**Returns**: <code>array</code> - - Return an array of JSON object to the callback function  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| callback | <code>function</code> | The callback function to return the full result |
+| ...urls | <code>string</code> | list of URLs, using the spread syntax |
+
+**Example**  
+```js
+var vwu = new Vanilla_website_utils();
+const url = "http://example.com/api/foo"
+vwu.aget_api(call_me_back,url, url, url, url);
+
+function call_me_back(msg) {
+ console.log(msg);
+}
+```
+<a name="exp_module_Vanilla-website-utils--module.exports+wait_for_all"></a>
+
+### module.exports#wait\_for\_all(...ps) ⇒ <code>promise</code> ⏏
+**Kind**: Exported function  
+**Returns**: <code>promise</code> - - Return a promise  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| ...ps | <code>functions</code> | list of functions to process |
+
+**Example**  
+```js
+this.wait_for_all(...function_array).then((results) => callback(results));
+```
+<a name="exp_module_Vanilla-website-utils--module.exports+afetch"></a>
+
+### module.exports#afetch(url) ⇒ <code>json</code> ⏏
+**Kind**: Exported function  
+**Returns**: <code>json</code> - - returns a json object  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| url | <code>string</code> | url for the GET call |
+
+**Example**  
+```js
+this.wait_for_all(...function_array).then((results) => callback(results));
+```
+<a name="exp_module_Vanilla-website-utils--module.exports+handle_rejection"></a>
+
+### module.exports#handle\_rejection(p) ⇒ <code>objet</code> ⏏
+**Kind**: Exported function  
+**Returns**: <code>objet</code> - - returns an error  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| p | <code>fuction</code> | promise fuction to process |
+
+**Example**  
+```js
+//used by the model wait_for all, see above
+ wait_for_all(...ps) {
+   return Promise.all(ps.map(this.handle_rejection));
+ }
 ```
 <a name="exp_module_Vanilla-website-utils--module.exports+aget_api"></a>
 

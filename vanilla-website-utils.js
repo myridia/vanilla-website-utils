@@ -439,6 +439,75 @@ module.exports = class Vanilla_website_utils {
   }
 
   /**
+This function allows you to call multiple API Get URLs asynchronously and wait for all results.
+Once all results are received, an array of JSON object results is returned.
+@alias module:Vanilla-website-utils
+@param {function} - The callback function to return the full result
+@param {string} - list of URLs, using the spread syntax
+@returns {array} - Return an array of JSON object to the callback function 
+@example
+* var vwu = new Vanilla_website_utils();
+* const url = "http://example.com/api/foo"
+* vwu.aget_api(call_me_back,url, url, url, url);
+*
+* function call_me_back(msg) {
+*  console.log(msg);
+* }
+
+*/
+  async afetch_all(callback, ...urls) {
+    // Create the function array from the urls
+    let function_array = [];
+    for (let i in urls) {
+      function_array.push(this.afetch(urls[i]));
+    }
+
+    /* Send the function array wait for all function
+     * Once its processed it send the final result back to the callback caller
+     */
+    this.wait_for_all(...function_array).then((results) => callback(results));
+  }
+
+  /**
+@alias module:Vanilla-website-utils
+@param {functions} - list of functions to process
+@returns {promise} - Return a promise
+@example
+*     this.wait_for_all(...function_array).then((results) => callback(results));
+*/
+  wait_for_all(...ps) {
+    return Promise.all(ps.map(this.handle_rejection));
+  }
+
+  /**
+@alias module:Vanilla-website-utils
+@param {string} - url for the GET call
+@returns {json} - returns a json object
+@example
+* this.wait_for_all(...function_array).then((results) => callback(results));
+*/
+  async afetch(url) {
+    const r = await fetch(url);
+    const d = await r.json();
+    return d;
+  }
+  /**
+@alias module:Vanilla-website-utils
+@param {fuction} - promise fuction to process
+@returns {objet} - returns an error
+@example
+*  //used by the model wait_for all, see above
+*  wait_for_all(...ps) {
+*    return Promise.all(ps.map(this.handle_rejection));
+*  }
+*/
+  handle_rejection(p) {
+    return p.catch((error) => ({
+      error,
+    }));
+  }
+
+  /**
 @alias module:Vanilla-website-utils
 @param {string} - api url
 @param {string} - user - for Basic Authorization
