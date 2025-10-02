@@ -1,4 +1,4 @@
-# ![domain-swapper](demo/public/assets/img/logo.png) Domain-Swapper Vanilla-website-utils
+# Vanilla-website-utils
 Vanilla JS utility functions
 for daily website usage
 
