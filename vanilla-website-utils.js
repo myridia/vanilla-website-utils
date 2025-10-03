@@ -459,7 +459,6 @@ Once all results are received, an array of JSON object results is returned.
     // Create the function array from the urls
     let function_array = [];
     for (let i in urls) {
-      console.log(i);
       function_array.push(this.afetch(i, urls[i]));
     }
 
