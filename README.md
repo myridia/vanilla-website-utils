@@ -73,7 +73,7 @@ A module for Vanilla-website-utils
     * [module.exports#add_parameters(url, parameters)](#exp_module_Vanilla-website-utils--module.exports+add_parameters) ⇒ <code>string</code> ⏏
     * [module.exports#afetch_all(callback, ...urls)](#exp_module_Vanilla-website-utils--module.exports+afetch_all) ⇒ <code>array</code> ⏏
     * [module.exports#wait_for_all(...ps)](#exp_module_Vanilla-website-utils--module.exports+wait_for_all) ⇒ <code>promise</code> ⏏
-    * [module.exports#afetch(url)](#exp_module_Vanilla-website-utils--module.exports+afetch) ⇒ <code>json</code> ⏏
+    * [module.exports#afetch(i)](#exp_module_Vanilla-website-utils--module.exports+afetch) ⇒ <code>array</code> ⏏
     * [module.exports#handle_rejection(p)](#exp_module_Vanilla-website-utils--module.exports+handle_rejection) ⇒ <code>objet</code> ⏏
     * [module.exports#aget_api(url, user, password, token)](#exp_module_Vanilla-website-utils--module.exports+aget_api) ⇒ <code>object</code> ⏏
     * [module.exports#aput_api(url, data, content_type)](#exp_module_Vanilla-website-utils--module.exports+aput_api) ⇒ <code>object</code> ⏏
@@ -335,7 +335,7 @@ This function allows you to call multiple API Get URLs asynchronously and wait f
 Once all results are received, an array of JSON object results is returned.
 
 **Kind**: Exported function  
-**Returns**: <code>array</code> - - Return an array of JSON object to the callback function  
+**Returns**: <code>array</code> - - returns 3 nested arrays, main array, counter number and the last nested array includes a JSON object of the actual result  
 
 | Param | Type | Description |
 | --- | --- | --- |
@@ -356,7 +356,7 @@ function call_me_back(msg) {
 
 ### module.exports#wait\_for\_all(...ps) ⇒ <code>promise</code> ⏏
 **Kind**: Exported function  
-**Returns**: <code>promise</code> - - Return a promise  
+**Returns**: <code>promise</code> - - returns a promise  
 
 | Param | Type | Description |
 | --- | --- | --- |
@@ -368,13 +368,13 @@ this.wait_for_all(...function_array).then((results) => callback(results));
 ```
 <a name="exp_module_Vanilla-website-utils--module.exports+afetch"></a>
 
-### module.exports#afetch(url) ⇒ <code>json</code> ⏏
+### module.exports#afetch(i) ⇒ <code>array</code> ⏏
 **Kind**: Exported function  
-**Returns**: <code>json</code> - - returns a json object  
+**Returns**: <code>array</code> - - returns and array with the counter and JSON object result  
 
 | Param | Type | Description |
 | --- | --- | --- |
-| url | <code>string</code> | url for the GET call |
+| i | <code>string</code> | url for the GET call |
 
 **Example**  
 ```js
