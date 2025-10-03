@@ -445,7 +445,7 @@ Once all results are received, an array of JSON object results is returned.
 @alias module:Vanilla-website-utils
 @param {function} - The callback function to return the full result
 @param {string} - list of URLs, using the spread syntax
-@returns {array} - Return an array of JSON object to the callback function 
+@returns {array} - returns 3 nested arrays, main array, counter number and the last nested array includes a JSON object of the actual result
 @example
 * var vwu = new Vanilla_website_utils();
 * const url = "http://example.com/api/foo"
@@ -460,7 +460,8 @@ Once all results are received, an array of JSON object results is returned.
     // Create the function array from the urls
     let function_array = [];
     for (let i in urls) {
-      function_array.push(this.afetch(urls[i]));
+      console.log(i);
+      function_array.push(this.afetch(i, urls[i]));
     }
 
     /* Send the function array wait for all function
@@ -472,7 +473,7 @@ Once all results are received, an array of JSON object results is returned.
   /**
 @alias module:Vanilla-website-utils
 @param {functions} - list of functions to process
-@returns {promise} - Return a promise
+@returns {promise} - returns a promise
 @example
 *     this.wait_for_all(...function_array).then((results) => callback(results));
 */
@@ -483,14 +484,14 @@ Once all results are received, an array of JSON object results is returned.
   /**
 @alias module:Vanilla-website-utils
 @param {string} - url for the GET call
-@returns {json} - returns a json object
+@returns {array} - returns and array with the counter and JSON object result
 @example
 * this.wait_for_all(...function_array).then((results) => callback(results));
 */
-  async afetch(url) {
+  async afetch(i, url) {
     const r = await fetch(url);
     const d = await r.json();
-    return d;
+    return [parseInt(i), d];
   }
   /**
 @alias module:Vanilla-website-utils
