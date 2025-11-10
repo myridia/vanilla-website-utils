@@ -56,6 +56,7 @@ A module for Vanilla-website-utils
 
 
 * [Vanilla-website-utils](#module_Vanilla-website-utils)
+    * [module.exports#shuffle_array(array, length)](#exp_module_Vanilla-website-utils--module.exports+shuffle_array) ⇒ <code>array</code> ⏏
     * [module.exports#remove_tags()](#exp_module_Vanilla-website-utils--module.exports+remove_tags) ⇒ <code>string</code> ⏏
     * [module.exports#is_number(value)](#exp_module_Vanilla-website-utils--module.exports+is_number) ⇒ <code>boolean</code> ⏏
     * [module.exports#round(number, decimal)](#exp_module_Vanilla-website-utils--module.exports+round) ⇒ <code>float</code> ⏏
@@ -96,6 +97,23 @@ A module for Vanilla-website-utils
     * [module.exports#s_set_selected(select_obj, data)](#exp_module_Vanilla-website-utils--module.exports+s_set_selected) ⏏
     * [module.exports#set_selected()](#exp_module_Vanilla-website-utils--module.exports+set_selected) ⏏
 
+<a name="exp_module_Vanilla-website-utils--module.exports+shuffle_array"></a>
+
+### module.exports#shuffle\_array(array, length) ⇒ <code>array</code> ⏏
+**Kind**: Exported function  
+**Returns**: <code>array</code> - - new shuffled array  
+
+| Param | Type | Default | Description |
+| --- | --- | --- | --- |
+| array | <code>array</code> |  | array to be shuffled |
+| length | <code>int</code> | <code>0</code> | length of the new returning array |
+
+**Example**  
+```js
+var vwu = new Vanilla_website_utils();
+const array = ["a","b","c","d","e","f","g","h","i"];
+const new_array = await vwu.shuffle_array(array);
+```
 <a name="exp_module_Vanilla-website-utils--module.exports+remove_tags"></a>
 
 ### module.exports#remove\_tags() ⇒ <code>string</code> ⏏
