@@ -10,6 +10,32 @@ module.exports = class Vanilla_website_utils {
 
   /**
 @alias module:Vanilla-website-utils
+@param {array} - array to be shuffled 
+@param {int} - length of the new returning array
+@returns {array} - new shuffled array 
+@example
+* var vwu = new Vanilla_website_utils();
+* const array = ["a","b","c","d","e","f","g","h","i"];
+* const new_array = await vwu.shuffle_array(array);
+*/
+  shuffle_array(array,length=0) {
+
+    if(length > array.length || length === 0 ) {
+      length = array.length;
+    }
+    
+    for (let i = array.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1)); // Random index from 0 to i
+      [array[i], array[j]] = [array[j], array[i]]; // Swap elements
+    }
+    
+    return array.slice(0,length);
+  }
+
+
+  
+  /**
+@alias module:Vanilla-website-utils
 @param {string} -  string what contains html tags
 @returns {string} - string with the tags removed
 @example
