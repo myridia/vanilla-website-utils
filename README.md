@@ -1,4 +1,4 @@
-# ![domain-translate](pages/public/img/logo.png) Vanilla-website-utils
+# ![domain-translate](pages/public/img/logo_250.png) Vanilla-website-utils
 
 
 Vanilla JS utility functions for daily website usage
