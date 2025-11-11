@@ -1,6 +1,7 @@
-# Vanilla-website-utils
-Vanilla JS utility functions
-for daily website usage
+# ![domain-translate](pages/public/img/logo.png) Vanilla-website-utils
+
+
+Vanilla JS utility functions for daily website usage
 
 # Feeback
 If you are using or are interested in this module, please send me some Feedback.
