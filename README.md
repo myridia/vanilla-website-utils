@@ -1,7 +1,6 @@
-# ![domain-translate](pages/public/img/logo_250.png) Vanilla-website-utils
-
-
-Vanilla JS utility functions for daily website usage
+# Vanilla-website-utils
+Vanilla JS utility functions
+for daily website usage
 
 # Feeback
 If you are using or are interested in this module, please send me some Feedback.
@@ -57,6 +56,7 @@ A module for Vanilla-website-utils
 
 
 * [Vanilla-website-utils](#module_Vanilla-website-utils)
+    * [module.exports#extract_anchor_value(str)](#exp_module_Vanilla-website-utils--module.exports+extract_anchor_value) ⇒ <code>str</code> ⏏
     * [module.exports#shuffle_array(array, length)](#exp_module_Vanilla-website-utils--module.exports+shuffle_array) ⇒ <code>array</code> ⏏
     * [module.exports#remove_tags()](#exp_module_Vanilla-website-utils--module.exports+remove_tags) ⇒ <code>string</code> ⏏
     * [module.exports#is_number(value)](#exp_module_Vanilla-website-utils--module.exports+is_number) ⇒ <code>boolean</code> ⏏
@@ -98,6 +98,22 @@ A module for Vanilla-website-utils
     * [module.exports#s_set_selected(select_obj, data)](#exp_module_Vanilla-website-utils--module.exports+s_set_selected) ⏏
     * [module.exports#set_selected()](#exp_module_Vanilla-website-utils--module.exports+set_selected) ⏏
 
+<a name="exp_module_Vanilla-website-utils--module.exports+extract_anchor_value"></a>
+
+### module.exports#extract\_anchor\_value(str) ⇒ <code>str</code> ⏏
+**Kind**: Exported function  
+**Returns**: <code>str</code> - - extract anchor value  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| str | <code>str</code> | anchor string |
+
+**Example**  
+```js
+var vwu = new Vanilla_website_utils();
+let str = "<a href=www.data.com>123.321</a>";
+let v = vwu.extract_anchor_value(str);
+```
 <a name="exp_module_Vanilla-website-utils--module.exports+shuffle_array"></a>
 
 ### module.exports#shuffle\_array(array, length) ⇒ <code>array</code> ⏏
