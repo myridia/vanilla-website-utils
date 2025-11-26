@@ -7,6 +7,28 @@
 
 module.exports = class Vanilla_website_utils {
   constructor() {}
+  /**
+@alias module:Vanilla-website-utils
+@param {str} - anchor string 
+@returns {str} - extract anchor value
+@example
+* var vwu = new Vanilla_website_utils();
+* let str = "<a href=www.data.com>123.321</a>";
+* let v = vwu.extract_anchor_value(str);
+*/
+  extract_anchor_value(str, _type = "string") {
+    let str1 = document.createElement("str1");
+    str1.innerHTML = str;
+    let v = str1.textContent;
+    if (this.is_number(v)) {
+      if (_type == "float") {
+        v = parseFloat(v);
+      } else if (_type == "int") {
+        v = parseInt(v);
+      }
+    }
+    return v;
+  }
 
   /**
 @alias module:Vanilla-website-utils
@@ -18,22 +40,19 @@ module.exports = class Vanilla_website_utils {
 * const array = ["a","b","c","d","e","f","g","h","i"];
 * const new_array = await vwu.shuffle_array(array);
 */
-  shuffle_array(array,length=0) {
-
-    if(length > array.length || length === 0 ) {
+  shuffle_array(array, length = 0) {
+    if (length > array.length || length === 0) {
       length = array.length;
     }
-    
+
     for (let i = array.length - 1; i > 0; i--) {
       const j = Math.floor(Math.random() * (i + 1)); // Random index from 0 to i
       [array[i], array[j]] = [array[j], array[i]]; // Swap elements
     }
-    
-    return array.slice(0,length);
+
+    return array.slice(0, length);
   }
 
-
-  
   /**
 @alias module:Vanilla-website-utils
 @param {string} -  string what contains html tags
