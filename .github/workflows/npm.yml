@@ -21,7 +21,6 @@ jobs:
 
      - name: checkout 
        uses: actions/checkout@v4
-      # Setup .npmrc file to publish to npm
      - name: setup 
        uses: actions/setup-node@v4
        with:
