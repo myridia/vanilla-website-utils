@@ -18,5 +18,15 @@ jobs:
          script: |
           const token = await core.getIDToken();
           core.info(`OIDC token: ${token.substring(0,20)}...`);
-        
+
+     - name: checkout 
+       uses: actions/checkout@v4
+      # Setup .npmrc file to publish to npm
+     - name: setup 
+       uses: actions/setup-node@v4
+       with:
+          node-version: '23.x'
+          registry-url: 'https://registry.npmjs.org'
+
+  
 
