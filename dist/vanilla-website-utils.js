@@ -362,6 +362,7 @@ module.exports = class Vanilla_website_utils {
     const url = window.location.href;
     const uri = url.split("?")[0];
     const v = await this.get_parameters();
+
     let filter = {};
     for (let i in v) {
       if (v[i] != "" && v[i] != "none") {
@@ -372,7 +373,8 @@ module.exports = class Vanilla_website_utils {
         }
       }
     }
-    const new_url = await vwu.add_parameters(uri, filter);
+
+    const new_url = await vwu.add_parameters(uri, filter, true);
     window.history.pushState(null, null, new_url);
   }
 
@@ -472,15 +474,20 @@ module.exports = class Vanilla_website_utils {
 * filter = {"foo":"bar"};
 * url = await vwu.add_parameters(url, filter);
 */
-  async add_parameters(url, parameters) {
+  async add_parameters(url, parameters, encode = false) {
     let sep = "?";
     if (url.indexOf("?") > -1) {
       sep = "&";
     }
     for (let i in parameters) {
-      url += sep + i + "=" + parameters[i];
+      if (encode === true) {
+        url += sep + i + "=" + encodeURIComponent(parameters[i]);
+      } else {
+        url += sep + i + "=" + parameters[i];
+      }
       sep = "&";
     }
+
     return url;
   }
 
