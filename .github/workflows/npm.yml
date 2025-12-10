@@ -24,7 +24,7 @@ jobs:
      - name: setup 
        uses: actions/setup-node@v4
        with:
-         node-version: '20'              # Your node version
+         node-version: '24.x'            # Your node version
          registry-url: 'https://registry.npmjs.org'
          always-auth: true  
 
