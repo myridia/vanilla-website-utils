@@ -11,13 +11,12 @@ jobs:
       contents: read
       id-token: write
     steps:
-      - uses: actions/checkout@v4
-      # Setup .npmrc file to publish to npm
-      - uses: actions/setup-node@v4
-        with:
-          node-version: '23.x'
-          registry-url: 'https://registry.npmjs.org'
-      - run: npm install --package-lock-only
-      - run: npm ci
-      - run: npm run build --if-present
-      - run: npm publish
+     - name: Request OIDC token
+       id: oidc-token
+       uses: actions/github-script@v7
+       with:
+         script: |
+          const token = await core.getIDToken();
+          core.info(`OIDC token: ${token.substring(0,20)}...`);
+        
+
