@@ -1,3 +1,5 @@
+<img src="vanilla-website-utils.svg" alt="vanilla-website-utils" width="120">
+
 ![Vanilla-website-utils](pages/public/img/icon_192x192.png) Vanilla-website-utils
 
 [![npm version](https://badge.fury.io/js/vanilla-website-utils.svg)](https://badge.fury.io/js/vanilla-website-utils)
